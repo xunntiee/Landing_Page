@@ -1,15 +1,127 @@
 @import "tailwindcss";
+@config "../tailwind.config.js";
 
 /** Theme **/
 @theme {
   /* Screens */
-  --breakpoint-sm: 30rem; /*480px*/
-  --breakpoint-md: 48rem; /*768px*/
-  --breakpoint-lg: 80rem; /*1280px*/
-  --breakpoint-xl: 87.5rem; /*1400px*/
-  --breakpoint-2xl: 96rem; /*1536px*/
+  --breakpoint-sm: 30rem;
+  /*480px*/
+  --breakpoint-md: 48rem;
+  /*768px*/
+  --breakpoint-lg: 80rem;
+  /*1280px*/
+  --breakpoint-xl: 87.5rem;
+  /*1400px*/
+  --breakpoint-2xl: 96rem;
+  /*1536px*/
 
   /* font */
   --font-lobster: "Lobster", serif;
-  --font-inter: "Inter", sans-serif;        
+  --font-inter: "Inter", sans-serif;
+}
+
+@utility container {
+  margin-inline: auto;
+  padding-inline: 1rem;
+  padding-block: 2rem;
+  width: 100%;
+  overflow-x: clip;
+  max-width: 1536px;
+
+  @media (min-width: theme('screens.md')) {
+    padding-inline: 4.5rem;
+    padding-block: 3rem;
+  }
+}
+
+@layer base {
+  html {
+   @apply scroll-smooth;  
+  }
+  
+  body {
+    @apply text-base font-inter overflow-x-clip;
+  }
+
+  p {
+    @apply text-sm leading-7 font-inter;
+  }
+
+  button {
+    @apply px-1 py-1 border cursor-pointer;
+  }
+
+  li {
+    @apply text-xs font-inter lg:text-base text-n-500;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply flex items-center justify-center gap-2 px-4 py-2 text-sm tracking-wider text-white transition-colors duration-500 bg-p-900 hover:bg-p-700 border-p-900 font-inter lg:py-3 lg:px-9;
+  }
+
+  .text-gradient {
+    background: linear-gradient(to right, theme('color.p.600'), theme('color.p.900'));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+  }
+
+  /* Partner logos */
+  .sub_heading {
+    @apply text-xs font-medium uppercase font-inter text-p-900
+  }
+  .main_heading {
+    @apply mt-2 text-2xl tracking-wide capitalize lg:text-3xl font-lobster
+  }
+}
+
+@layer utilities {
+  /* partner logos */
+  .logo-ticker-image {
+    @apply w-auto h-6 lg:h-9
+  }
+
+  /* Products */
+  .tabContainer {
+    @apply flex flex-col w-full gap-8 md:flex-row md:gap-16;
+
+    > div {
+      @apply w-full my-auto;
+    }
+    
+    h3 {
+      @apply text-3xl font-bold capitalize lg:text-4xl;
+    }
+    
+    h4 {
+      @apply mt-4 text-xl font-semibold text-p-900 md:mt-8;
+    }
+
+    p {
+      @apply max-w-xl mt-2;
+    }
+
+    button {
+      @apply flex-none mt-4 md:mt-8;
+    }
+  }
+  
+  .productImg {
+    @apply w-full md:w-1/2 h-[250px] md:h-[700px] md:rounded-tr-[80px] md:rounded-br-[80px] object-cover;
+  }
+
+  .tab-link {
+    @apply font-semibold hover:text-n-700;
+
+    span {
+      @apply hidden sm:inline;
+    }
+  }
+  
+
+  .activeTab {
+    @apply text-p-900;
+  }
 }

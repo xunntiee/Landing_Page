@@ -3,9 +3,12 @@
     "build": "tailwindcss -i ./css/main.css -o ./dist/output.css",
     "dev": "tailwindcss -i ./css/main.css -o ./dist/output.css --watch"
   },
-
   "dependencies": {
     "@tailwindcss/cli": "^4.1.17",
     "tailwindcss": "^4.1.17"
+  },
+  "devDependencies": {
+    "prettier": "^3.6.2",
+    "prettier-plugin-tailwindcss": "^0.7.1"
   }
 }
