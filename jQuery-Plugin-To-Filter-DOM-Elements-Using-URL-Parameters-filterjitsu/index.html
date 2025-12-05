@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>jquery.filterjitsu demo</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <h1>
+          <a href="https://github.com/Fullscreen/filterjitsu">jquery.filterjitsu.js</a>
+        </h1>
+      </div>
+      <div class="row">
+        <ul>
+          <li><a href="./">Clear search query params</a></li>
+          <li><a href="?filter-category=official&filter-type=YouTube">Official YouTube Videos</a></li>
+          <li><a href="?filter-category=official&filter-type=Facebook">Official Facebook Videos</a></li>
+          <li><a href="?filter-category=international&filter-type=YouTube">International YouTube Videos</a></li>
+          <li><a href="?filter-category=international&filter-type=Facebook">International Facebook Videos</a></li>
+          <li><a href="?filter-category=unofficial&filter-type=YouTube">Unofficial YouTube Videos</a></li>
+          <li><a href="?filter-category=unofficial&filter-type=Facebook">Unofficial Facebook Videos</a></li>
+          <li><a href="?filter-category=unofficial&filter-type=YouTube&filter-status=released">Unofficial Released YouTube Videos</a></li>
+          <li><a href="?filter-category=unofficial&filter-type=Facebook&filter-status=unreleased">Unofficial Unreleased Facebook Videos</a></li>
+          <li><a href="?filter-type=YouTube">Total YouTube Videos</a></li>
+          <li><a href="?filter-type=Facebook">Total Facebook Videos</a></li>
+          <li><a href="?filter-status=released">Total Released Videos</a></li>
+          <li><a href="?filter-status=unreleased">Total Unreleased Videos</a></li>
+          <li><a href="?">Total Videos</a></li>
+        </ul>
+      </div>
+      <div class="row">
+        <div>
+          <span>Count</span> <span data-count="video"></span>
+        </div>
+        <div data-alert="video"></div>
+      </div>
+      <div class="row">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Full Description</th><th>Category</th><th>Type</th><th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr data-filterable data-filter-type="YouTube">
+              <td>Official YouTube Videos</td><td>undefined</td><td>YouTube</td><td>undefined</td>
+            </tr>
+            <tr data-filterable data-filter-category="official" data-filter-type="YouTube">
+              <td>Official YouTube Videos</td><td>Official</td><td>YouTube</td><td>undefined</td>
+            </tr>
+            <tr data-filterable data-filter-category="international" data-filter-type="Facebook">
+              <td>International Facebook Videos</td><td>International</td><td>Facebook</td><td>undefined</td>
+            </tr>
+            <tr data-filterable data-filter-category="unofficial" data-filter-type="YouTube" data-filter-status="released">
+              <td>Unofficial YouTube Videos</td><td>Unofficial</td><td>YouTube</td><td>Released</td>
+            </tr>
+            <tr data-filterable data-filter-category="official" data-filter-type="YouTube" data-filter-status="released">
+              <td>Official YouTube Videos</td><td>Official</td><td>YouTube</td><td>Released</td>
+            </tr>
+            <tr data-filterable data-filter-category="unofficial" data-filter-type="Facebook" data-filter-status="unreleased">
+              <td>Unofficial Facebook Videos</td><td>Unofficial</td><td>Facebook</td><td>Unreleased</td>
+            </tr>
+            <tr data-filterable data-filter-category="international" data-filter-type="YouTube" data-filter-status="released">
+              <td>International YouTube Videos</td><td>International</td><td>YouTube</td><td>Released</td>
+            </tr>
+            <tr data-filterable data-filter-category="official" data-filter-type="YouTube" data-filter-status="unreleased">
+              <td>Official YouTube Videos</td><td>Official</td><td>YouTube</td><td>Unreleased</td>
+            </tr>
+            <tr data-filterable data-filter-category="official" data-filter-type="Facebook" data-filter-status="unreleased">
+              <td>Official Facebook Videos</td><td>Official</td><td>Facebook</td><td>Unreleased</td>
+            </tr>
+            <tr data-filterable data-filter-category="unofficial" data-filter-type="Facebook" data-filter-status="released">
+              <td>Unofficial Facebook Videos</td><td>Unofficial</td><td>Facebook</td><td>Released</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script src="dist/jquery.filterjitsu.js"></script>
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $.fn.filterjitsu();
+      });
+    </script>
+  </body>
+</html>
