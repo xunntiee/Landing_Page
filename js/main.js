@@ -174,25 +174,26 @@ $(function () {
 
 // You can also pass an optional settings object
 // below listed default settings
-  AOS.init({
-  // --- Global ---
-  disable: false,
-  startEvent: 'DOMContentLoaded',
-  initClassName: 'aos-init',
-  animatedClassName: 'aos-animate',
-  useClassNames: false,
-  disableMutationObserver: false,
-  debounceDelay: 50,
-  throttleDelay: 50, // giảm xuống một chút cho cảm giác mượt hơn
+AOS.init({
+  // Global settings:
+  disable: false, // accepts following values: 'phone', 'tablet', 'mobile', boolean, expression or function
+  startEvent: 'DOMContentLoaded', // name of the event dispatched on the document, that AOS should initialize on
+  initClassName: 'aos-init', // class applied after initialization
+  animatedClassName: 'aos-animate', // class applied on animation
+  useClassNames: false, // if true, will add content of `data-aos` as classes on scroll
+  disableMutationObserver: false, // disables automatic mutations' detections (advanced)
+  debounceDelay: 50, // the delay on debounce used while resizing window (advanced)
+  throttleDelay: 99, // the delay on throttle used while scrolling the page (advanced)
+  
 
-  // --- Per element defaults ---
-  offset: 80,         // gần viewport hơn, vào khung là chạy luôn
-  delay: 50,          // có hơi tí delay tạo cảm giác mượt (0.05s)
-  duration: 800,      // kéo dài animation ~0.8s trông mượt hơn 0.5s
-  easing: 'ease-out-quart', // easing ra chậm, vào nhanh, nhìn rất “smooth”
-  once: true,         // chỉ animate 1 lần khi scroll xuống
-  mirror: false,      // không animate ngược khi scroll lên
-  anchorPlacement: 'top-bottom' // bắt đầu khi top phần tử chạm bottom viewport
+  // Settings that can be overridden on per-element basis, by `data-aos-*` attributes:
+  offset: 100, // offset (in px) from the original trigger point
+  delay: 50, // values from 0 to 3000, with step 50ms
+  duration: 700, // values from 0 to 3000, with step 50ms
+  easing: 'ease-out-quart', // default easing for AOS animations
+  once: false, // whether animation should happen only once - while scrolling down
+  mirror: true, // whether elements should animate out while scrolling past them
+  anchorPlacement: 'center-bottom', // defines which position of the element regarding to window should trigger the animation
+
 });
-
 });
